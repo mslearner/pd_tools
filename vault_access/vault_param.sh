@@ -1,0 +1,15 @@
+SUBSCRIPTION_ID=47c6d388-64ad-471d-8b94-2a4179ba5441
+SERVICE_PRINCIPAL_NAME=oauth-client-credential-flow
+SERVICE_PRINCIPAL_PASSWORD=edR8Q~gE1FhsXOgKi08NoiMRwZTzL_wlMYu8rc2x
+AZURE_CLIENT_SECRET=edR8Q~gE1FhsXOgKi08NoiMRwZTzL_wlMYu8rc2x
+RESOURCE_GROUP=linux_learner_rg_0619
+RESOURCE_GROUP_LOCATION=westus
+RESOURCE=https://vault.azure.net
+KEYVAULT_NAME=silvervault
+KEYVAULT_SECRET_NAME=mysecret
+KEYVAULT_SECRET_VALUE=myhelloworld
+TENANT_ID=78f9c33e-5b36-4730-93a8-9416d43ee1b3
+AZURE_TENANT_ID=78f9c33e-5b36-4730-93a8-9416d43ee1b3
+SERVICE_PRINCIPAL_APP_ID=$(az ad sp list --display-name $SERVICE_PRINCIPAL_NAME --query [0].appId -otsv)
+AZURE_CLIENT_ID=$(az ad sp list --display-name $SERVICE_PRINCIPAL_NAME --query [0].appId -otsv)
+KEYVAULT_URI=$(az keyvault show -n $KEYVAULT_NAME --query properties.vaultUri -otsv)
