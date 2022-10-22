@@ -5,7 +5,7 @@ metadata:
   labels:
     app: nginx
 spec:
-  replicas: 3
+  replicas: 2
   selector:
     matchLabels:
       app: nginx
@@ -39,7 +39,7 @@ metadata:
     kubernetes.io/ingress.class: addon-http-application-routing
 spec:
   rules:
-    - host: nginx.6534cfcadcff4ac09b3d.westus.aksapp.io
+    - host: nginx.821371e1a760479e99bc.eastus.aksapp.io
       http:
         paths:
           - path: /

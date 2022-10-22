@@ -2,18 +2,16 @@
 set -x
 
 read -n 1
-az group create --name az_cluster --location westus
+az group create --name az_cluster --location eastus  --tags 'Owner=pdewan'
   
 read -n 1
-az aks create --resource-group az_cluster --name my-aks-cluster --node-count 3 --generate-ssh-keys --enable-addons http_application_routing
+az aks create --resource-group az_cluster --name my-aks-cluster --node-count 2 --generate-ssh-keys --enable-addons http_application_routing --node-vm-size Standard_DS2_v2  --tags 'Owner=pdewan'
  
 
 read -n 1
 az aks get-credentials --resource-group az_cluster --name my-aks-cluster
  
 
-read -n 1
-kubectl label pods nginx-pod owner-
 
 read -n 1
 az aks show -g az_cluster -n my-aks-cluster \
