@@ -1,4 +1,5 @@
 #!/bin/bash
 set -x
-az group delete --name az_cluster --yes --no-wait
+echo $CLUSTER_GROUP_NAME
+az group delete --name ${CLUSTER_GROUP_NAME} --yes --no-wait
 
