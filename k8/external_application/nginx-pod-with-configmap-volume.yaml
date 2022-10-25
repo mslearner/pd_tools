@@ -1,0 +1,32 @@
+# ~/nginx-Pod-with-configmap-volume.yaml
+
+apiVersion: v1
+
+kind: Pod
+
+metadata:
+
+  name: nginx-pod-with-configmap-volume
+
+spec:
+
+  volumes:
+
+    - name: configuration-volume
+
+      configMap:
+
+        name: my-sixth-configmap # Configmap name goes here
+
+  containers:
+
+   - name: nginx-container-with-configmap
+
+     image: nginx:latest
+
+     volumeMounts:
+
+       - name: configuration-volume # match the volume name
+
+         mountPath: /etc/conf
+
